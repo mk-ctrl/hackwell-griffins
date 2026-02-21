@@ -1,0 +1,58 @@
+/* 1. Tailwind Directives: Mandatory for your utility classes to work */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 2. Global Styles for the Side Panel */
+:root {
+  /* High-end dark theme colors for 2026 */
+  --bg-dark: #020617; /* Slate-950 */
+  --accent-emerald: #10b981; /* Emerald-500 */
+  --accent-red: #ef4444; /* Red-500 */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-dark);
+  color: #f1f5f9; /* Slate-100 text */
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden; /* Side panels are narrow; this prevents accidental horizontal scrolling */
+  user-select: none; /* Prevents text selection for a more "app-like" feel */
+}
+
+/* 3. Custom Utility: Glassmorphism for the "Agent Thought" cards */
+.glass-card {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 4. Custom Scrollbar: Sleek and thin for narrow interfaces */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-emerald);
+}
+
+/* 5. The "Scan Pulse" Animation for the Shield Icon */
+@keyframes shield-pulse {
+  0% { filter: drop-shadow(0 0 2px var(--accent-emerald)); }
+  50% { filter: drop-shadow(0 0 10px var(--accent-emerald)); }
+  100% { filter: drop-shadow(0 0 2px var(--accent-emerald)); }
+}
+
+.animate-shield {
+  animation: shield-pulse 2s infinite ease-in-out;
+}
